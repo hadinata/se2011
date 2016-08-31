@@ -1,0 +1,228 @@
+\documentclass[a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{2111defs,2111theorems}
+
+\usepackage{color,soul}
+
+\usepackage[document]{ragged2e}
+\usepackage{geometry}
+\geometry{margin = 1.2in}
+
+\title{SENG2011 Semester 1 2016 - Assignment 1}
+\author{Clinton Hadinata - 3467783}
+
+\newcommand{\assn}[1]{{\color{red}\left\{#1\right\}}}
+
+\begin{document}
+\maketitle
+
+\section{Question A}
+Truth table for the argument:\\
+\vspace{5mm}
+\begin{tabular}{@{ }c@{ }@{ }c@{ }@{ }c | c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{ } | c@{}@{ }c@{ }@{ }c@{ }@{ }c@{ }@{ }c@{ }@{}c@{ } | c | c@{ }@{ }c}
+P & Q & R & ( & P & $\Rightarrow$ & Q & ) & ( & R & $\Rightarrow$ & $\neg$ & P & ) & R & $\neg$ & Q\\
+\hline 
+$\top$ & $\top$ & $\top$ &  & $\top$ & \textcolor{red}{$\top$} & $\top$ &  &  & $\top$ & \textcolor{red}{$\bot$} & $\bot$ & $\top$ &  & \textcolor{red}{$\top$} & \textcolor{red}{$\bot$} & $\top$\\
+$\top$ & $\top$ & $\bot$ &  & $\top$ & \textcolor{red}{$\top$} & $\top$ &  &  & $\bot$ & \textcolor{red}{$\top$} & $\bot$ & $\top$ &  & \textcolor{red}{$\bot$} & \textcolor{red}{$\bot$} & $\top$\\
+$\top$ & $\bot$ & $\top$ &  & $\top$ & \textcolor{red}{$\bot$} & $\bot$ &  &  & $\top$ & \textcolor{red}{$\bot$} & $\bot$ & $\top$ &  & \textcolor{red}{$\top$} & \textcolor{red}{$\top$} & $\bot$\\
+$\top$ & $\bot$ & $\bot$ &  & $\top$ & \textcolor{red}{$\bot$} & $\bot$ &  &  & $\bot$ & \textcolor{red}{$\top$} & $\bot$ & $\top$ &  & \textcolor{red}{$\bot$} & \textcolor{red}{$\top$} & $\bot$\\
+$\bot$ & $\top$ & $\top$ &  & $\bot$ & \textcolor{red}{\hl{$\top$}} & $\top$ &  &  & $\top$ & \textcolor{red}{\hl{$\top$}} & $\top$ & $\bot$ &  & \textcolor{red}{\hl{$\top$}} & \textcolor{red}{\hl{$\bot$}} & $\top$\\
+$\bot$ & $\top$ & $\bot$ &  & $\bot$ & \textcolor{red}{$\top$} & $\top$ &  &  & $\bot$ & \textcolor{red}{$\top$} & $\top$ & $\bot$ &  & \textcolor{red}{$\bot$} & \textcolor{red}{$\bot$} & $\top$\\
+$\bot$ & $\bot$ & $\top$ &  & $\bot$ & \textcolor{red}{\hl{$\top$}} & $\bot$ &  &  & $\top$ & \textcolor{red}{\hl{$\top$}} & $\top$ & $\bot$ &  & \textcolor{red}{\hl{$\top$}} & \textcolor{red}{\hl{$\top$}} & $\bot$\\
+$\bot$ & $\bot$ & $\bot$ &  & $\bot$ & \textcolor{red}{$\top$} & $\bot$ &  &  & $\bot$ & \textcolor{red}{$\top$} & $\top$ & $\bot$ &  & \textcolor{red}{$\bot$} & \textcolor{red}{$\top$} & $\bot$\\
+\end{tabular}
+\vspace{5mm}\\
+As can be seen in the above truth table, there is a row (the 5th row from the top) that has all of the premises of the argument being true but which results in the conclusion being false. Thus, the argument is invalid. 
+
+
+
+\section{Question B}
+
+\renewcommand{\labelenumi}{(\alph{enumi})}
+
+\begin{enumerate}
+\item True. An example is \(x = 100\).\\
+\item False. A counterexample is \(y = 100\). \\
+\item True. Because the real numbers are infinite, whatever \(x\) is there will be some number \(y\) such that \(x > y\) (i.e. there will always be some number \(y\) that is smaller than \(x\)).\\
+\item False. There cannot be a real number \(y\) that is greater than or equal to all other real numbers as the domain of real numbers is infinite, and as such there will always be a number (\(y+1, y+2, etc.\)) that is bigger than \(y\).\\
+\item True. It must be that \(x > y\) or \(y \leq x\) as this covers all possible cases - all possible relationships between \(x\) and \(y\), which are of \(x < y\), \(x > y\) and \(x = y\). Since this covers all possible cases, it forms the universal set, and hence the statement is true.\\
+\item True. The LHS of the conjunction is true - an example is \( x = 1000\). The RHS of the conjunction is also true - a counterexample of \( \forall xR(x)\) is \(x = 0\). Hence both sides of the conjunction are true, making the entire statement true.\\
+\item False. We have determined that statement (d) is false. Since the RHS of the conjunction here is the same as (d), we can conclude that this statement must also be false.\\
+\item False. A counterexample is \(x = 100\) and \(y = 99.5\). Here, \(R(x)\) is true since \(100 - 1 = 99\), and \(S(y)\) would also be true since \(99.5 > 99\). Thus, the antecedent of the implication \((R(x) \wedge S(y))\) is true. However, the consequent \(Q(x,y)\) is false as \(100 \nleq 99.5\). Thus we have an example where the antecedent is true and the consequent is false, and hence the statement cannot be true.
+%True. The antecedent of the implication can only be true if \(x\) = 100 (as this is the only value of \(x\) that makes \(R(x)\) true) and if \(y > 99\) (to satisfy \(S(y)\)). In other words, the antecedent is true only when \(x\) = 100 and \(y > 99\), and thus under these circumstances \(x \leq y \), satisfying the consequent \(Q(x)\). Thus the implication holds - there can not be a situation where the antecedent is true and the consequent false. 
+\end{enumerate}
+
+\newpage
+\section{Question C}
+
+\setlength{\parindent}{5ex}
+
+\begin{enumerate}
+\setlength{\parindent}{5ex}
+\item \indent\indent Let \(x\) be someone such that:\\
+\vspace{1mm}
+\indent\indent \(P(x)\) : \(x\) passes the driving test.\\
+\indent\indent \(L(x)\) : \(x\) is issued a license.\\
+\vspace{2mm}
+\indent\indent \textbf{Proof}:\\
+\vspace{2mm}
+\indent\indent 1. \( \forall x (P(x) \Rightarrow L(x))\) \hfill \textbf{Assumption 1}\\
+\indent\indent 2. \(P(s)\) \hfill \textbf{Assumption 2}\\
+\indent\indent 3. \(P(s) \Rightarrow L(s)\) \hfill \textbf{UI (1)}\\
+\indent\indent 4. \(L(s)\) \hfill \textbf{Modus ponens (2 \& 3)}\\
+
+\vspace{5mm}
+
+\item \indent\indent Let \(x\) be a statement such that:\\
+\vspace{1mm}
+\indent\indent \(L(x) : x\) is a lie.\\
+\indent\indent \(F(x) : x\) is false.\\
+\indent\indent \(K(x) : x\) is known by the speaker to be false.\\
+%\indent\indent where \(x\) is a statement.\\
+\vspace{2mm}
+\indent\indent \textbf{Proof}:\\
+\vspace{2mm}
+\indent\indent 1. \( \forall x (L(x) \Rightarrow F(x) \wedge K(x))\) \hfill \textbf{Assumption 1}\\
+\indent\indent 2. \( \exists x (F(x) \wedge \neg K(x))\) \hfill \textbf{Assumption 2}\\
+\indent\indent 3. \( F(s) \wedge \neg K(s)\) \hfill \textbf{EI (2)}\\
+%\indent\indent 4. \( L(s) \Rightarrow F(s) \wedge K(s)\) \hfill \textbf{UI (1)}\\
+%\indent\indent 5. \( F(s) \) \hfill \textbf{Specialisation (3)}\\
+\indent\indent 4. \( \neg K(s) \) \hfill \textbf{Specialisation (3)}\\
+\indent\indent 5. \( \neg F(s) \vee \neg K(s) \) \hfill \textbf{Generalisation (4)}\\
+\indent\indent 6. \( \neg (F(s) \wedge K(s)) \) \hfill \textbf{De Morgan's law (5)}\\
+\indent\indent 7. \( L(s) \Rightarrow F(s) \wedge K(s)\) \hfill \textbf{UI (1)}\\
+\indent\indent 8. \( \neg L(s) \) \hfill \textbf{Modus tollens (6 \& 7)}\\
+\indent\indent 9. \( F(s) \) \hfill \textbf{Specialisation (3)}\\
+\indent\indent 10. \( F(s) \wedge \neg L(s) \) \hfill \textbf{Conjunction (8 \& 9)}\\
+\indent\indent 11. \( \exists x(F(x) \wedge \neg L(x))\) \hfill \textbf{EG (10)}\\
+\indent\indent 12. \( \exists x~\neg(F(x) \Rightarrow L(x))\) \hfill \textbf{Conditional law (11)}\\
+\indent\indent 13. \( \neg \forall x~\neg(\neg(F(x) \Rightarrow L(x)))\) \hfill \textbf{Negation of universal quantifier(12)}\\
+\indent\indent 14. \( \neg \forall x(F(x) \Rightarrow L(x)))\) \hfill \textbf{Double negation (13)}\\
+%\indent\indent 12. \( \neg \forall x~\neg (F(x) \wedge \neg L(x)) \) \hfill \textbf{Negation of universal quantifier}\\
+%\indent\indent 13. \( \neg \forall x(\neg F(x) \vee \neg\neg L(x)) \) \hfill \textbf{De Morgan's law (12)}\\
+%\indent\indent 14. \( \neg \forall x(\neg F(x) \vee L(x)) \) \hfill \textbf{Double negation (13)}\\
+%\indent\indent 15. \( \neg \forall x(F(x) \Rightarrow L(x)) \) \hfill \textbf{Conditional law (14)}\\
+
+\vspace{5mm}
+\item \noindent \\
+\indent\indent \textbf{Proof}:\\
+\vspace{2mm}
+\indent\indent 1. \( \forall x(P(x) \Rightarrow (Q(x) \wedge R(x)))\) \hfill \textbf{Assumption 1}\\
+\indent\indent 2. \( \forall x(P(x) \wedge S(x)) \) \hfill \textbf{Assumption 2}\\
+\indent\indent 3. \( P(s) \Rightarrow (Q(s) \wedge R(s)) \) \hfill \textbf{UI (1)}\\
+\indent\indent 4. \( P(s) \wedge S(s)) \) \hfill \textbf{UI (2)}\\
+\indent\indent 5. \( P(s) \) \hfill \textbf{Specialisation (4)}\\
+\indent\indent 6. \( Q(s) \wedge R(s) \) \hfill \textbf{Modus ponens (3 \& 5)}\\
+\indent\indent 7. \( R(s) \) \hfill \textbf{Specialisation (6)}\\
+\indent\indent 8. \( S(s) \) \hfill \textbf{Specialisation (4)}\\
+\indent\indent 9. \( R(s) \wedge S(s) \) \hfill \textbf{Conjunction (7 \& 8)}\\
+\indent\indent 10. \( \forall x(R(x) \wedge S(x)) \) \hfill \textbf{UG (9)}\\
+
+\end{enumerate}
+
+
+%Questions for Addo:
+% Part A - correctness? Truth table thing right?
+% When can we use UG? Is my use of it correct in part c of c?
+% proving implications.. vacuously true, do we need to write the hoare logic laws used?
+\newpage
+\section{Question D}
+
+\begin{enumerate}
+
+
+
+\item The program iterates through array \(A\) from the last element \(A[n-1\)] to the first element \(A[0]\) but stops (i.e. the loop breaks) if it finds any element that is not equal to 0. In other words, it checks whether or not there are any non-zero elements in the array \(A\). If it reaches the end of the loop (i.e. if \(r = -1\)), then there are no non-zero elements in the array; otherwise (i.e. if \(-1 < r < n\)) , there is at least one non-zero element in array \(A\).\\
+
+\item \noindent The specification says that the precondition for \textbf{C} is that the number of elements in array \(A\) should be greater than or equal to 1 and that the postcondition for \textbf{C} is that every element from \(A[r+1]\) to \(A[n-1]\) must not be equal to zero and that if \(r\) is between 0 and \(n-1\) inclusive, then \(A[r]\) must be equal to zero.\\
+
+\item \textbf{Proof}:\\
+\vspace{3mm}
+Let: \\
+\vspace{2mm}
+%\begin{displaymath}
+\qquad\(pre:~n \geq 1\)\\
+\vspace{2mm}
+\qquad \(post:~r \in [-1,n-1] \wedge (\forall i \in [r+1,n-1]A[i]\neq 0) \wedge (r \in [0,n-1]) \Rightarrow A[r] = 0 \)\\
+\vspace{2mm}
+\qquad \(I :~ r \in [-1,n-1] \wedge (\forall i \in [r+1,n-1]A[i]\neq 0)\)\\
+%\end{displaymath}
+
+%DAFFNY: YOU CAN'T WRITE ensures true - its like basically cheatingsss
+
+%THIS ASSIGNMENT - VACUOUSLY TRUE - empty set. Empty set implies anything!
+
+\begin{align}
+  & \assn{pre}\\
+  & \assn{I\subst{n-1}r}\\
+  & r \Ass n-1\notag\\
+  & \assn{I}\\
+  & \WHILE~ r\neq -1 \wedge A[r]\neq 0 ~\DO\notag\\
+  & \qquad\assn{I \wedge r\neq -1 \wedge A[r]\neq 0}\\
+  & \qquad\assn{I\subst{r-1}r}\\
+  & \qquad r \Ass r-1\notag\\
+  & \qquad\assn{I}\\
+  & \OD\notag\\
+  & \assn{I \wedge (r = -1 \vee A[r] = 0)}\\
+  & \assn{post}
+\end{align}
+
+\vspace{6mm}
+
+Hoare logic rules are used as follows:\\
+\vspace{3mm}
+\( \{I\subst{n-1}r\}~r := n-1~\{I\} \) \hfill \textbf{assignment}\\
+\vspace{2mm}
+\( \{I\}~ \WHILE~ r\neq -1 \wedge A[r]\neq 0 ~\DO ~r := n-1~ \OD ~\{I \wedge (r = -1 \vee A[r] = 0)\} \) \hfill \textbf{while}\\
+\vspace{2mm}
+\( \{I\subst{r-1}r\} ~r := r-1~\{I\} \) \hfill \textbf{assignment}\\
+\vspace{6mm}
+Proof of implications are on the next page.\\
+
+\newpage
+
+\textbf{Proof of implications}:\\
+\vspace{8mm}
+\underline{(1) \(\Rightarrow\) (2): \textcolor{red}{\(\{pre\}\)} \(\Rightarrow\) \textcolor{red}{\(\{I\subst{n-1}r \}\)}} \\
+\vspace{4mm}
+\qquad\( \{n \geq 1\} \)\hfill (1)\\
+\vspace{2mm}
+\qquad\qquad \(\Rightarrow \{n-1 \in [-1,n-1] \wedge (\forall i \in [n,n-1]A[i]\neq 0)\} \) \hfill (2) \\
+\vspace{3mm}
+The statement \(\forall i \in [n,n-1]A[i]\neq 0\) is vacuously true because \(i \in [n, n-1]\) is the empty set (it does not exist - you cannot have \( n < i < n - 1\) for \(n \geq 1\)), and hence the RHS of the conjugation in (2) is true. The LHS of the conjugation is also true as \(n-1\) is the inclusive upper bound of \([-1, n-1]\) when \(n \geq 1\) as assumed in (1). Hence, (2) follows to always be true and the implication holds.\\
+\vspace{10mm}
+\underline{(4) \(\Rightarrow\) (5): \textcolor{red}{\( \{ I \wedge r\neq -1 \wedge A[r]\neq 0 \}\)} \(\Rightarrow\) \textcolor{red}{\(\{ I\subst{r-1}r \} \)}} \\
+\vspace{4mm}
+\qquad\( \{ r \in [-1,n-1] \wedge (\forall i \in [r+1,n-1]A[i]\neq 0) \wedge r\neq -1 \wedge A[r]\neq 0 \}\) \hfill (4) \\
+\vspace{2mm}
+\qquad\qquad \( \Rightarrow \{ r-1 \in [-1,n-1] \wedge (\forall i \in [r,n-1]A[i]\neq 0)\} \) \hfill (5) \\
+\vspace{3mm}
+Let \(x \in \mathbb{N}\) such that \( x > r - 1\).\\
+\vspace{2mm}
+If \( x > r\), then \(A[x] \neq 0 \) by the assumption \(\forall i \in [r+1,n-1]A[i]\neq 0\) in (4). Otherwise, i.e. if \(x = r\), then \(A[x] \neq 0\) by the assumption \(A[r] \neq 0\) in (4). Thus the RHS of the conjugation in (5) - \(\forall i \in [r,n-1]A[i]\neq 0\) - must follow to be true.\\
+\vspace{2mm}
+The LHS of the conjugation also follows to be true as one of the assumptions in (4) is that \( r\neq -1\), and thus \(r - 1\) cannot be less than -1.\\
+\vspace{1mm} 
+Hence, (5) follows and the implication holds.\\
+\vspace{10mm}
+\underline{(7) \(\Rightarrow\) (8): \textcolor{red}{\( \{I \wedge (r = -1 \vee A[r] = 0)\}\)} \(\Rightarrow\)  \textcolor{red}{\(\{post\} \)}}\\
+\vspace{4mm}
+\qquad \( \{r \in [-1,n-1] \wedge (\forall i \in [r+1,n-1]A[i]\neq 0) \wedge (r = -1 \vee A[r] = 0)\}\) \hfill (7) \\
+\vspace{2mm}
+\qquad\qquad \( \Rightarrow \{r \in [-1,n-1] \wedge (\forall i \in [r+1,n-1]A[i]\neq 0) \wedge (r \in [0,n-1]) \Rightarrow A[r] = 0\} \) \hfill (8) \\
+\vspace{3mm}
+Since the first two statements of (7) and (8) are identical, we can prove this implication by showing that the following shortened implication holds:\\
+\vspace{2mm}
+\qquad \( r = -1 \vee A[r] = 0\) \hfill (7.c) \(\subset\) (7) \\ 
+\vspace{2mm}
+\qquad\qquad \( \Rightarrow ~(r \in [0,n-1]) \Rightarrow A[r] = 0)\) \hfill (8.c) \(\subset\) (8) \\
+\vspace{3mm}
+If \( r = -1\), then the antecedent in (8.c) - \(~r \in [0,n-1]~\) - would be false, making the implication true. If \(A[r] = 0\) then the consequent in (8.c) - \(~ A[r] = 0 ~\) - would be true, once again making the implication true. Since these are the only two possibilities given (7.c), (8.c) will always be true and hence (8) follows, and the entire implication (7) \(\Rightarrow\) (8) holds.
+
+\end{enumerate}
+
+
+
+
+\end{document}
